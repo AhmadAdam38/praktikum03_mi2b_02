@@ -106,20 +106,23 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ],
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.blue,
-                  onPrimary: Colors.blue,
-                  onSurface: Colors.blue,
-                ),
-                onPressed: _ditekan,
-                child: Text(
-                  "Konversi Suhu",
-                  style: TextStyle(
-                    color: Colors.white
+              Container(
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    onPrimary: Colors.blue,
+                    onSurface: Colors.blue,
                   ),
+                  onPressed: _ditekan,
+                  child: Text(
+                    "Konversi Suhu",
+                    style: TextStyle(
+                      color: Colors.white
+                    ),
+                    ),
                   ),
-                ),
+              ),
               
             ],
           ),
