@@ -5,7 +5,23 @@ void main() {
   runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
+Widget buatKotak (Color warna, double ukuran) {
+  return Container(
+    decoration: BoxDecoration(
+      color: warna
+    ),
+    height: ukuran,
+    width: ukuran,
+    margin: EdgeInsets.all(10),
+  );
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -21,7 +37,69 @@ class MyApp extends StatelessWidget {
         ),
         body: Container(
           margin: EdgeInsets.all(8),
-          child: TextFormField(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TextFormField(
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  hintText: 'Masukkan Suhu Dalam Celcius'
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children:[
+                      Container(
+                        alignment: Alignment.topCenter,
+                        child: Text("Suhu dalam Kelvin"),
+                      ),
+                      Text(
+                        "50",
+                        style: TextStyle(
+                          fontSize: 60,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children:[
+                      Container(
+                        alignment: Alignment.topCenter,
+                        child: Text("Suhu dalam Reamor"),
+                      ),
+                      Text(
+                        "200",
+                        style: TextStyle(
+                          fontSize: 60,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  onPrimary: Colors.blue,
+                  onSurface: Colors.blue,
+                ),
+                onPressed: null,
+                child: Text(
+                  "Konversi Suhu",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),
+                  ),
+                ),
+              
+            ],
+          ),
         ),
         ),
     );
