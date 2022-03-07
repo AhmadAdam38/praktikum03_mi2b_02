@@ -24,7 +24,17 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
+  void ditekan(){
+    setState(() {
+      
+    });
+  }
+
   Widget build(BuildContext context) {
+    double _inputUser=0;
+    double _kelvin=0;
+    final _adam=TextEditingController();
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -42,6 +52,7 @@ class _MyAppState extends State<MyApp> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
+                controller: _adam,
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 decoration: InputDecoration(
