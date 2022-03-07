@@ -62,57 +62,13 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextFormField(
-                controller: _adam,
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                
-                decoration: InputDecoration(
-                  hintText: 'Masukkan Suhu Dalam Celcius',
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children:[
-                      Container(
-                        alignment: Alignment.topCenter,
-                        child: Text("Suhu dalam Kelvin"),
-                      ),
-                      Text(
-                        '$_kelvin',
-                        style: TextStyle(
-                          fontSize: 60,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children:[
-                      Container(
-                        alignment: Alignment.topCenter,
-                        child: Text("Suhu dalam Reamor"),
-                      ),
-                      Text(
-                        '$_reamur',
-                        style: TextStyle(
-                          fontSize: 60,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+              Masukan(adam: _adam),
+              output(kelvin: _kelvin, reamur: _reamur),
               Container(
                 height: 50,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue,
-                    onPrimary: Colors.blue,
-                    onSurface: Colors.blue,
                   ),
                   onPressed: _ditekan,
                   child: Text(
@@ -128,6 +84,78 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         ),
+    );
+  }
+}
+
+class output extends StatelessWidget {
+  const output({
+    Key? key,
+    required double kelvin,
+    required double reamur,
+  }) : _kelvin = kelvin, _reamur = reamur, super(key: key);
+
+  final double _kelvin;
+  final double _reamur;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children:[
+            Container(
+              alignment: Alignment.topCenter,
+              child: Text("Suhu dalam Kelvin"),
+            ),
+            Text(
+              '$_kelvin',
+              style: TextStyle(
+                fontSize: 60,
+              ),
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children:[
+            Container(
+              alignment: Alignment.topCenter,
+              child: Text("Suhu dalam Reamor"),
+            ),
+            Text(
+              '$_reamur',
+              style: TextStyle(
+                fontSize: 60,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class Masukan extends StatelessWidget {
+  const Masukan({
+    Key? key,
+    required TextEditingController adam,
+  }) : _adam = adam, super(key: key);
+
+  final TextEditingController _adam;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: _adam,
+      keyboardType: TextInputType.number,
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      
+      decoration: InputDecoration(
+        hintText: 'Masukkan Suhu Dalam Celcius',
+      ),
     );
   }
 }
