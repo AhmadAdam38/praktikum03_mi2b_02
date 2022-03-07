@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Konversi Suhu"),
         ),
-        body: Container(),
+        body: Container(
+          margin: EdgeInsets.all(8),
+          child: TextFormField(),
+        ),
         ),
     );
   }
